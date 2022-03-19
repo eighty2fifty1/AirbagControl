@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1840234627E647CC005816DB /* AirbagControlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840234527E647CC005816DB /* AirbagControlApp.swift */; };
+		1840234827E647CC005816DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840234727E647CC005816DB /* ContentView.swift */; };
+		1840234A27E647D4005816DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1840234927E647D4005816DB /* Assets.xcassets */; };
+		1840234D27E647D4005816DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1840234C27E647D4005816DB /* Preview Assets.xcassets */; };
+		1840235827E647D5005816DB /* AirbagControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840235727E647D5005816DB /* AirbagControlTests.swift */; };
+		1840236327E647D5005816DB /* AirbagControlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840236227E647D5005816DB /* AirbagControlUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1840235427E647D5005816DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1840233A27E647CC005816DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1840234127E647CC005816DB;
+			remoteInfo = AirbagControl;
+		};
+		1840235F27E647D5005816DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1840233A27E647CC005816DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1840234127E647CC005816DB;
+			remoteInfo = AirbagControl;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1840234227E647CC005816DB /* AirbagControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirbagControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1840234527E647CC005816DB /* AirbagControlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirbagControlApp.swift; sourceTree = "<group>"; };
+		1840234727E647CC005816DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1840234927E647D4005816DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1840234C27E647D4005816DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1840234E27E647D4005816DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1840235327E647D5005816DB /* AirbagControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirbagControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1840235727E647D5005816DB /* AirbagControlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirbagControlTests.swift; sourceTree = "<group>"; };
+		1840235927E647D5005816DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1840235E27E647D5005816DB /* AirbagControlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirbagControlUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1840236227E647D5005816DB /* AirbagControlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirbagControlUITests.swift; sourceTree = "<group>"; };
+		1840236427E647D5005816DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1840233F27E647CC005816DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1840235027E647D5005816DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1840235B27E647D5005816DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1840233927E647CC005816DB = {
+			isa = PBXGroup;
+			children = (
+				1840234427E647CC005816DB /* AirbagControl */,
+				1840235627E647D5005816DB /* AirbagControlTests */,
+				1840236127E647D5005816DB /* AirbagControlUITests */,
+				1840234327E647CC005816DB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1840234327E647CC005816DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1840234227E647CC005816DB /* AirbagControl.app */,
+				1840235327E647D5005816DB /* AirbagControlTests.xctest */,
+				1840235E27E647D5005816DB /* AirbagControlUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1840234427E647CC005816DB /* AirbagControl */ = {
+			isa = PBXGroup;
+			children = (
+				1840234527E647CC005816DB /* AirbagControlApp.swift */,
+				1840234727E647CC005816DB /* ContentView.swift */,
+				1840234927E647D4005816DB /* Assets.xcassets */,
+				1840234E27E647D4005816DB /* Info.plist */,
+				1840234B27E647D4005816DB /* Preview Content */,
+			);
+			path = AirbagControl;
+			sourceTree = "<group>";
+		};
+		1840234B27E647D4005816DB /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1840234C27E647D4005816DB /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1840235627E647D5005816DB /* AirbagControlTests */ = {
+			isa = PBXGroup;
+			children = (
+				1840235727E647D5005816DB /* AirbagControlTests.swift */,
+				1840235927E647D5005816DB /* Info.plist */,
+			);
+			path = AirbagControlTests;
+			sourceTree = "<group>";
+		};
+		1840236127E647D5005816DB /* AirbagControlUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1840236227E647D5005816DB /* AirbagControlUITests.swift */,
+				1840236427E647D5005816DB /* Info.plist */,
+			);
+			path = AirbagControlUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1840234127E647CC005816DB /* AirbagControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1840236727E647D5005816DB /* Build configuration list for PBXNativeTarget "AirbagControl" */;
+			buildPhases = (
+				1840233E27E647CC005816DB /* Sources */,
+				1840233F27E647CC005816DB /* Frameworks */,
+				1840234027E647CC005816DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AirbagControl;
+			productName = AirbagControl;
+			productReference = 1840234227E647CC005816DB /* AirbagControl.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1840235227E647D5005816DB /* AirbagControlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1840236A27E647D5005816DB /* Build configuration list for PBXNativeTarget "AirbagControlTests" */;
+			buildPhases = (
+				1840234F27E647D5005816DB /* Sources */,
+				1840235027E647D5005816DB /* Frameworks */,
+				1840235127E647D5005816DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1840235527E647D5005816DB /* PBXTargetDependency */,
+			);
+			name = AirbagControlTests;
+			productName = AirbagControlTests;
+			productReference = 1840235327E647D5005816DB /* AirbagControlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1840235D27E647D5005816DB /* AirbagControlUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1840236D27E647D5005816DB /* Build configuration list for PBXNativeTarget "AirbagControlUITests" */;
+			buildPhases = (
+				1840235A27E647D5005816DB /* Sources */,
+				1840235B27E647D5005816DB /* Frameworks */,
+				1840235C27E647D5005816DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1840236027E647D5005816DB /* PBXTargetDependency */,
+			);
+			name = AirbagControlUITests;
+			productName = AirbagControlUITests;
+			productReference = 1840235E27E647D5005816DB /* AirbagControlUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1840233A27E647CC005816DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					1840234127E647CC005816DB = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					1840235227E647D5005816DB = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 1840234127E647CC005816DB;
+					};
+					1840235D27E647D5005816DB = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 1840234127E647CC005816DB;
+					};
+				};
+			};
+			buildConfigurationList = 1840233D27E647CC005816DB /* Build configuration list for PBXProject "AirbagControl" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1840233927E647CC005816DB;
+			productRefGroup = 1840234327E647CC005816DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1840234127E647CC005816DB /* AirbagControl */,
+				1840235227E647D5005816DB /* AirbagControlTests */,
+				1840235D27E647D5005816DB /* AirbagControlUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1840234027E647CC005816DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1840234D27E647D4005816DB /* Preview Assets.xcassets in Resources */,
+				1840234A27E647D4005816DB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1840235127E647D5005816DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1840235C27E647D5005816DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1840233E27E647CC005816DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1840234827E647CC005816DB /* ContentView.swift in Sources */,
+				1840234627E647CC005816DB /* AirbagControlApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1840234F27E647D5005816DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1840235827E647D5005816DB /* AirbagControlTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1840235A27E647D5005816DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1840236327E647D5005816DB /* AirbagControlUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1840235527E647D5005816DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1840234127E647CC005816DB /* AirbagControl */;
+			targetProxy = 1840235427E647D5005816DB /* PBXContainerItemProxy */;
+		};
+		1840236027E647D5005816DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1840234127E647CC005816DB /* AirbagControl */;
+			targetProxy = 1840235F27E647D5005816DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1840236527E647D5005816DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1840236627E647D5005816DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1840236827E647D5005816DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"AirbagControl/Preview Content\"";
+				DEVELOPMENT_TEAM = 8QBDP55KDZ;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = AirbagControl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = g.AirbagControl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1840236927E647D5005816DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"AirbagControl/Preview Content\"";
+				DEVELOPMENT_TEAM = 8QBDP55KDZ;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = AirbagControl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = g.AirbagControl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1840236B27E647D5005816DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8QBDP55KDZ;
+				INFOPLIST_FILE = AirbagControlTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = g.AirbagControlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirbagControl.app/AirbagControl";
+			};
+			name = Debug;
+		};
+		1840236C27E647D5005816DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8QBDP55KDZ;
+				INFOPLIST_FILE = AirbagControlTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = g.AirbagControlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirbagControl.app/AirbagControl";
+			};
+			name = Release;
+		};
+		1840236E27E647D5005816DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8QBDP55KDZ;
+				INFOPLIST_FILE = AirbagControlUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = g.AirbagControlUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AirbagControl;
+			};
+			name = Debug;
+		};
+		1840236F27E647D5005816DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8QBDP55KDZ;
+				INFOPLIST_FILE = AirbagControlUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = g.AirbagControlUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AirbagControl;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1840233D27E647CC005816DB /* Build configuration list for PBXProject "AirbagControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1840236527E647D5005816DB /* Debug */,
+				1840236627E647D5005816DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1840236727E647D5005816DB /* Build configuration list for PBXNativeTarget "AirbagControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1840236827E647D5005816DB /* Debug */,
+				1840236927E647D5005816DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1840236A27E647D5005816DB /* Build configuration list for PBXNativeTarget "AirbagControlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1840236B27E647D5005816DB /* Debug */,
+				1840236C27E647D5005816DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1840236D27E647D5005816DB /* Build configuration list for PBXNativeTarget "AirbagControlUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1840236E27E647D5005816DB /* Debug */,
+				1840236F27E647D5005816DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1840233A27E647CC005816DB /* Project object */;
+}
