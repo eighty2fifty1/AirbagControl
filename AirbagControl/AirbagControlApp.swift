@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct AirbagControlApp: App {
+    @StateObject var bleManager = BLEManager()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(bleManager)
         }
     }
 }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,11 @@
 		1840234D27E647D4005816DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1840234C27E647D4005816DB /* Preview Assets.xcassets */; };
 		1840235827E647D5005816DB /* AirbagControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840235727E647D5005816DB /* AirbagControlTests.swift */; };
 		1840236327E647D5005816DB /* AirbagControlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840236227E647D5005816DB /* AirbagControlUITests.swift */; };
+		1840237527E647EF005816DB /* TTGaugeView in Frameworks */ = {isa = PBXBuildFile; productRef = 1840237427E647EF005816DB /* TTGaugeView */; };
+		1840237C27E64800005816DB /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840237A27E64800005816DB /* BLEManager.swift */; };
+		1840237D27E64800005816DB /* ControlUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840237B27E64800005816DB /* ControlUUID.swift */; };
+		1840238227E648CB005816DB /* PressGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840238127E648CB005816DB /* PressGaugeView.swift */; };
+		1840238A27F4B39E005816DB /* LEDIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840238927F4B39E005816DB /* LEDIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +50,10 @@
 		1840235E27E647D5005816DB /* AirbagControlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirbagControlUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1840236227E647D5005816DB /* AirbagControlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirbagControlUITests.swift; sourceTree = "<group>"; };
 		1840236427E647D5005816DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1840237A27E64800005816DB /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
+		1840237B27E64800005816DB /* ControlUUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlUUID.swift; sourceTree = "<group>"; };
+		1840238127E648CB005816DB /* PressGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressGaugeView.swift; sourceTree = "<group>"; };
+		1840238927F4B39E005816DB /* LEDIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1840237527E647EF005816DB /* TTGaugeView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +85,7 @@
 		1840233927E647CC005816DB = {
 			isa = PBXGroup;
 			children = (
+				1840237927E64800005816DB /* BLE Group */,
 				1840234427E647CC005816DB /* AirbagControl */,
 				1840235627E647D5005816DB /* AirbagControlTests */,
 				1840236127E647D5005816DB /* AirbagControlUITests */,
@@ -100,6 +111,8 @@
 				1840234927E647D4005816DB /* Assets.xcassets */,
 				1840234E27E647D4005816DB /* Info.plist */,
 				1840234B27E647D4005816DB /* Preview Content */,
+				1840238127E648CB005816DB /* PressGaugeView.swift */,
+				1840238927F4B39E005816DB /* LEDIndicatorView.swift */,
 			);
 			path = AirbagControl;
 			sourceTree = "<group>";
@@ -130,6 +143,15 @@
 			path = AirbagControlUITests;
 			sourceTree = "<group>";
 		};
+		1840237927E64800005816DB /* BLE Group */ = {
+			isa = PBXGroup;
+			children = (
+				1840237A27E64800005816DB /* BLEManager.swift */,
+				1840237B27E64800005816DB /* ControlUUID.swift */,
+			);
+			path = "BLE Group";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +168,9 @@
 			dependencies = (
 			);
 			name = AirbagControl;
+			packageProductDependencies = (
+				1840237427E647EF005816DB /* TTGaugeView */,
+			);
 			productName = AirbagControl;
 			productReference = 1840234227E647CC005816DB /* AirbagControl.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +242,9 @@
 				Base,
 			);
 			mainGroup = 1840233927E647CC005816DB;
+			packageReferences = (
+				1840237327E647EF005816DB /* XCRemoteSwiftPackageReference "TTGaugeView" */,
+			);
 			productRefGroup = 1840234327E647CC005816DB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,7 +287,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1840238A27F4B39E005816DB /* LEDIndicatorView.swift in Sources */,
+				1840238227E648CB005816DB /* PressGaugeView.swift in Sources */,
+				1840237D27E64800005816DB /* ControlUUID.swift in Sources */,
 				1840234827E647CC005816DB /* ContentView.swift in Sources */,
+				1840237C27E64800005816DB /* BLEManager.swift in Sources */,
 				1840234627E647CC005816DB /* AirbagControlApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,6 +612,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1840237327E647EF005816DB /* XCRemoteSwiftPackageReference "TTGaugeView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/eighty2fifty1/TTGaugeView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1840237427E647EF005816DB /* TTGaugeView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1840237327E647EF005816DB /* XCRemoteSwiftPackageReference "TTGaugeView" */;
+			productName = TTGaugeView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1840233A27E647CC005816DB /* Project object */;
 }
