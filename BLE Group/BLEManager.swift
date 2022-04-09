@@ -27,7 +27,21 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
     @Published var didDisconnect = false
     @Published var bleStatusMessage = "Unknown"
     
+    //characteristics
+    @Published var modeChar: CBCharacteristic!
+    @Published var leftSettingChar: CBCharacteristic!
+    @Published var rightSettingChar: CBCharacteristic!
+    @Published var leftPressChar: CBCharacteristic!
+    @Published var rightPressChar: CBCharacteristic!
+    @Published var leftDumpChar: CBCharacteristic!
+    @Published var rightDumpChar: CBCharacteristic!
+    @Published var leftFillChar: CBCharacteristic!
+    @Published var rightFillChar: CBCharacteristic!
+    @Published var pumpRelayChar: CBCharacteristic!
+
+    
     //published vars for controller data
+    @Published var mode: Int = 0;   //0 for auto mode, 1 for manual
     @Published var leftDumpSolenoid: Int = 0
     @Published var leftFillSolenoid: Int = 0
     @Published var rightDumpSolenoid: Int = 0
@@ -45,20 +59,19 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
                                       ControlUUID.settingServiceUUID,
                                       ControlUUID.statusServiceUUID]
     
-    //characteristics that read and write
-    private var readWriteCharacteristicUUIDs: [CBUUID] = [
-                                             ControlUUID.leftSettingCharUUID,
-                                             ControlUUID.rightSettingCharUUID,
-                                             ControlUUID.modeCharUUID]
+
     
-    //characteristics that subscribe to notifications
-    private var notificationCharUUIDs: [CBUUID] = [ControlUUID.leftPressCharUUID,
-                                                   ControlUUID.rightPressCharUUID,
-                                                   ControlUUID.leftFillUUID,
-                                                   ControlUUID.leftDumpUUID,
-                                                   ControlUUID.rightDumpUUID,
-                                                   ControlUUID.rightFillUUID,
-                                                   ControlUUID.pumpContUUID]
+    //characteristics
+    private var charUUIDs: [CBUUID] = [ControlUUID.leftSettingCharUUID,
+                                                   ControlUUID.rightSettingCharUUID,
+                                                   ControlUUID.modeCharUUID,
+                                                   ControlUUID.leftPressCharUUID,   //notify
+                                                   ControlUUID.rightPressCharUUID,  //notify
+                                                   ControlUUID.leftFillUUID,        //notify
+                                                   ControlUUID.leftDumpUUID,        //notify
+                                                   ControlUUID.rightDumpUUID,       //notify
+                                                   ControlUUID.rightFillUUID,       //notify
+                                                   ControlUUID.pumpContUUID]        //notify
     
         
     let customLog = Logger()
@@ -136,15 +149,11 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
             return
         }
         
-        for service in services {peripheral.discoverCharacteristics(readWriteCharacteristicUUIDs, for: service)
+        for service in services {
+            peripheral.discoverCharacteristics(charUUIDs, for: service)
         }
         
         customLog.notice("Discovered services: \(services)")
-        
-        for service in services {peripheral.discoverCharacteristics(notificationCharUUIDs, for: service)
-        }
-        
-        customLog.notice("Discovered notify services: \(services)")
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
@@ -155,10 +164,65 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
         customLog.notice("Found \(characteristics.count) characteristics")
         
         for characteristic in characteristics {
-            if notificationCharUUIDs.contains(characteristic.uuid) {
-                peripheral.setNotifyValue(true, for: characteristic)
-                print("enable notification for \(characteristic)")
+            if characteristic.uuid.isEqual(ControlUUID.leftSettingCharUUID) {
+                leftSettingChar = characteristic
+                bleController.readValue(for: leftSettingChar)
+                print("left setting")
             }
+            else if characteristic.uuid.isEqual(ControlUUID.rightSettingCharUUID) {
+                rightSettingChar = characteristic
+                bleController.readValue(for: rightSettingChar)
+                print("right setting")
+
+            }
+            else if characteristic.uuid.isEqual(ControlUUID.modeCharUUID) {
+                modeChar = characteristic
+                print("mode setting")
+
+            }
+            else if characteristic.uuid.isEqual(ControlUUID.leftPressCharUUID) {
+                leftPressChar = characteristic
+                peripheral.setNotifyValue(true, for: leftPressChar)
+                print("left press")
+
+            }
+            else if characteristic.uuid.isEqual(ControlUUID.rightPressCharUUID) {
+                rightPressChar = characteristic
+                peripheral.setNotifyValue(true, for: rightPressChar)
+                print("right press")
+
+            }
+            else if characteristic.uuid.isEqual(ControlUUID.leftDumpUUID) {
+                leftDumpChar = characteristic
+                peripheral.setNotifyValue(true, for: leftDumpChar)
+                print("left dump")
+
+            }
+            else if characteristic.uuid.isEqual(ControlUUID.rightDumpUUID) {
+                rightDumpChar = characteristic
+                peripheral.setNotifyValue(true, for: rightDumpChar)
+                print("right dump")
+
+            }
+            else if characteristic.uuid.isEqual(ControlUUID.leftFillUUID) {
+                leftFillChar = characteristic
+                peripheral.setNotifyValue(true, for: leftFillChar)
+                print("left fill")
+
+            }
+            else if characteristic.uuid.isEqual(ControlUUID.rightFillUUID) {
+                rightFillChar = characteristic
+                peripheral.setNotifyValue(true, for: rightFillChar)
+                print("right fill")
+
+            }
+            else if characteristic.uuid.isEqual(ControlUUID.pumpContUUID) {
+                pumpRelayChar = characteristic
+                peripheral.setNotifyValue(true, for: pumpRelayChar)
+                print("pump control")
+
+            }
+            
         }
     }
     
@@ -168,25 +232,74 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
             customLog.error("Error discovering characteristics: \(error.localizedDescription)")
             return
         }
-        guard let characteristicData = characteristic.value,
-              let stringFromData = String(data: characteristicData, encoding: .utf8) else {
-            return
+        let characteristicData = characteristic.value
+        if characteristic == leftSettingChar || characteristic == rightSettingChar || characteristic == modeChar{
+            if characteristic.isEqual(leftSettingChar) {
+                let leftSettingString = String(data: characteristicData!, encoding: .utf8)
+                leftSetting = Int(leftSettingString ?? "46") ?? 47
+                print("setting val: " + leftSettingString!)
+            }
+            else if characteristic.isEqual(rightSettingChar) {
+                let rightSettingString = String(data: characteristicData!, encoding: .utf8)
+                rightSetting = Int(rightSettingString ?? "46") ?? 47
+                print("setting val: " + rightSettingString!)
+
+            }
+            
+            else if characteristic.isEqual(modeChar) {
+                let modeString = String(data: characteristicData!, encoding: .utf8)
+                mode = Int(modeString ?? "0") ?? 0
+            }
         }
-        
-        if characteristic.uuid.isEqual(ControlUUID.leftFillUUID) {
-            leftFillSolenoid = Int(stringFromData) ?? 0
-        }
-        else if characteristic.uuid.isEqual(ControlUUID.leftDumpUUID) {
-            leftDumpSolenoid = Int(stringFromData) ?? 0
-        }
-        else if characteristic.uuid.isEqual(ControlUUID.rightFillUUID) {
-            rightFillSolenoid = Int(stringFromData) ?? 0
-        }
-        else if characteristic.uuid.isEqual(ControlUUID.rightDumpUUID) {
-            rightDumpSolenoid = Int(stringFromData) ?? 0
-        }
-        else if characteristic.uuid.isEqual(ControlUUID.pumpContUUID) {
-            pumpRelay = Int(stringFromData) ?? 0
+        else {
+            var dataInt: Int16 = 0
+            
+            dataInt = characteristicData?.withUnsafeBytes( {
+                    (pointer: UnsafeRawBufferPointer) ->
+                    Int16 in
+                    return pointer.load(as: Int16.self)
+            }) ?? 46
+            
+            
+            let dataInt_ = Int(dataInt)
+            var dataSource: String = "none "
+            
+            
+            if characteristic.isEqual(leftFillChar) {
+                leftFillSolenoid = dataInt_
+                dataSource = "left fill "
+            }
+            else if characteristic.isEqual(leftDumpChar) {
+                leftDumpSolenoid = dataInt_
+                dataSource = "left dump "
+                //print(leftDumpSolenoid)
+            }
+            else if characteristic.isEqual(rightFillChar) {
+                rightFillSolenoid = dataInt_
+                dataSource = "right fill "
+            }
+            else if characteristic.isEqual(rightDumpChar) {
+                rightDumpSolenoid = dataInt_
+                dataSource = "right dump "
+            }
+            else if characteristic.isEqual(pumpRelayChar) {
+                pumpRelay = dataInt_
+                dataSource = "pump relay "
+            }
+            
+            else if characteristic.isEqual(leftPressChar) {
+                leftPress = dataInt_
+                dataSource = "left press "
+            }
+            
+            else if characteristic.isEqual(rightPressChar) {
+                rightPress = dataInt_
+                dataSource = "right press "
+            }
+            
+            
+            
+        //print(dataSource + "notification: " + String(dataInt_))
         }
 
     }
@@ -199,7 +312,8 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
             else {
                 leftSetting = 100
             }
-            
+            changePressSetting(newPress: leftSetting, posit: leftSettingChar)
+
             
         }
         else {
@@ -210,6 +324,8 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
             else {
                 rightSetting = 100
             }
+            changePressSetting(newPress: rightSetting, posit: rightSettingChar)
+
         }
     }
     
@@ -222,6 +338,9 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
                 leftSetting = 0
                 
             }
+            changePressSetting(newPress: leftSetting, posit: leftSettingChar)
+            
+            
         }
         else {
             if rightSetting > 5 {
@@ -232,6 +351,81 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
                 rightSetting = 0
                 
             }
+            changePressSetting(newPress: rightSetting, posit: rightSettingChar)
+        }
+    }
+    
+    func changePressSetting(newPress: Int, posit: CBCharacteristic) {
+        let msgString: String = String(newPress)
+        let data = Data(msgString.utf8)
+        if isConnected {
+            if bleController.canSendWriteWithoutResponse {
+                print("can send without response")
+            }
+            else {print("cant send message without response idiot") }
+            
+            //print(msgChar.descriptors)
+            
+            bleController.writeValue(data, for: posit, type: .withResponse)
+            print(msgString)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                self.bleController.readValue(for: posit)
+
+            })
+            //bleController.readValue(for: posit)
+        }
+    }
+    
+    func sendStatusMsg(msg: String) {
+        let data = Data(msg.utf8)
+        if isConnected {
+            if bleController.canSendWriteWithoutResponse {
+                print("can send without response")
+            }
+            else {print("cant send message without response idiot") }
+            
+            //print(msgChar.descriptors)
+            
+            bleController.writeValue(data, for: modeChar, type: .withResponse)
+            print(msg)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                self.bleController.readValue(for: self.modeChar)
+
+            })
+        }
+    }
+    
+    func pumpPower(msg: String) {
+        let data = Data(msg.utf8)
+        if isConnected {
+            bleController.writeValue(data, for: pumpRelayChar, type: .withResponse)
+            print(msg)
+        }
+    }
+    
+    func manualSolenoidControl(posit: CBCharacteristic, value: Int) {
+        var data: Data
+        if isConnected {
+            if bleController.canSendWriteWithoutResponse {
+                print("can send without response")
+            }
+            else {print("cant send message without response idiot") }
+            
+            //print(msgChar.descriptors)
+            
+            if value == 1 {
+                data = Data(String("0").utf8)
+            }
+            else {
+                data = Data(String("1").utf8)
+            }
+            
+            bleController.writeValue(data, for: posit, type: .withResponse)
+            print(posit.properties)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                self.bleController.readValue(for: posit)
+
+            })
         }
     }
 }
