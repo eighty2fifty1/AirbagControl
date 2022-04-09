@@ -18,6 +18,8 @@
 		1840237D27E64800005816DB /* ControlUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840237B27E64800005816DB /* ControlUUID.swift */; };
 		1840238227E648CB005816DB /* PressGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840238127E648CB005816DB /* PressGaugeView.swift */; };
 		1840238A27F4B39E005816DB /* LEDIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840238927F4B39E005816DB /* LEDIndicatorView.swift */; };
+		1873544727FAA2BE00181626 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1873544627FAA2BE00181626 /* ButtonStyles.swift */; };
+		1873544C27FABC6100181626 /* BLEBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1873544B27FABC6100181626 /* BLEBannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		1840237B27E64800005816DB /* ControlUUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlUUID.swift; sourceTree = "<group>"; };
 		1840238127E648CB005816DB /* PressGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressGaugeView.swift; sourceTree = "<group>"; };
 		1840238927F4B39E005816DB /* LEDIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDIndicatorView.swift; sourceTree = "<group>"; };
+		1873544627FAA2BE00181626 /* ButtonStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		1873544B27FABC6100181626 /* BLEBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEBannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 				1840234E27E647D4005816DB /* Info.plist */,
 				1840234B27E647D4005816DB /* Preview Content */,
 				1840238127E648CB005816DB /* PressGaugeView.swift */,
+				1873544B27FABC6100181626 /* BLEBannerView.swift */,
 				1840238927F4B39E005816DB /* LEDIndicatorView.swift */,
 			);
 			path = AirbagControl;
@@ -147,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				1840237A27E64800005816DB /* BLEManager.swift */,
+				1873544627FAA2BE00181626 /* ButtonStyles.swift */,
 				1840237B27E64800005816DB /* ControlUUID.swift */,
 			);
 			path = "BLE Group";
@@ -289,8 +295,10 @@
 			files = (
 				1840238A27F4B39E005816DB /* LEDIndicatorView.swift in Sources */,
 				1840238227E648CB005816DB /* PressGaugeView.swift in Sources */,
+				1873544C27FABC6100181626 /* BLEBannerView.swift in Sources */,
 				1840237D27E64800005816DB /* ControlUUID.swift in Sources */,
 				1840234827E647CC005816DB /* ContentView.swift in Sources */,
+				1873544727FAA2BE00181626 /* ButtonStyles.swift in Sources */,
 				1840237C27E64800005816DB /* BLEManager.swift in Sources */,
 				1840234627E647CC005816DB /* AirbagControlApp.swift in Sources */,
 			);
