@@ -47,10 +47,9 @@ struct ContentView: View {
                 })
             }
             
-            if bleManager.isConnected {
                 HStack{
-                    PressGaugeView(press: bleManager.leftPress, posit: "Left", pressSetting: bleManager.leftSetting, topLed: bleManager.leftFillSolenoid, bottomLed: bleManager.leftDumpSolenoid, positCharTop: bleManager.leftFillChar, positCharBottom: bleManager.leftDumpChar)
-                    PressGaugeView(press: bleManager.rightPress, posit: "Right", pressSetting: bleManager.rightSetting, topLed: bleManager.rightFillSolenoid, bottomLed: bleManager.rightDumpSolenoid, positCharTop: bleManager.rightFillChar, positCharBottom: bleManager.rightDumpChar)
+                    PressGaugeView(press: bleManager.leftPress, posit: "Left", pressSetting: bleManager.leftSetting, topLed: bleManager.leftFillSolenoid, bottomLed: bleManager.leftDumpSolenoid)
+                    PressGaugeView(press: bleManager.rightPress, posit: "Right", pressSetting: bleManager.rightSetting, topLed: bleManager.rightFillSolenoid, bottomLed: bleManager.rightDumpSolenoid)
                     
                 }
             }
@@ -60,8 +59,6 @@ struct ContentView: View {
             }
         }
     }
-}
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
